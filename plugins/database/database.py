@@ -50,7 +50,7 @@ class Database:
 
     async def get_auth_user(self, id):
         user = self.col.find_one({'id': int(id)})
-        user.get('auth_user', True)
+        return user.get('auth_user', True)
 
     async def set_upload_as_doc(self, id, upload_as_doc):
         self.col.update_one({'id': id}, {'$set': {'upload_as_doc': upload_as_doc}})
