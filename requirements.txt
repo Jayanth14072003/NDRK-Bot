@@ -1,0 +1,19 @@
+#Coded by KA18 the @legend580 💛❤️
+
+# --- For-Telegram-Bot ------- #
+pyrogram
+TgCrypto
+loggers
+
+# --- For-Video-Splitter ------- #
+moviepy
+ffmpeg
+
+# --- For-Web-Response ------- #
+requests
+aiohttp
+
+# --- For-Database ------- #
+pymongo
+dnspython
+motor
