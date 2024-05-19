@@ -158,33 +158,33 @@ async def split_parts(file_path, parts, file_folder, fn):
         dd=str(d)
         output_file = os.path.join(output_folder, fn + "_Part" + str(i+1) + ".mp4")
         
-        #One type of command execution - it will print on terminal
-        #cmd = f"ffmpeg -i {file_path} -ss {start_time} -t {duration_per_part} -c copy {output_file}"
-        #subprocess.check_output(cmd, shell=True)
+        # One type of command execution - it will print on terminal
+        cmd = f"{ffmpeg_tools} -i {file_path} -ss {start_time} -t {d} -c copy {output_file}"
+        subprocess.check_output(cmd, shell=True)
         
-        #Another type of command execution - it will not print on terminal
-        command = [
-        ffmpeg_tools,
-        "-i",
-        file_path,
-        "-ss",
-        start_time,
-        "-t",
-        dd,
-        "-c", "copy",
-        output_file 
-        ]
+        # #Another type of command execution - it will not print on terminal
+        # command = [
+        # "ffmpeg",
+        # "-i",
+        # file_path,
+        # "-ss",
+        # start_time,
+        # "-t",
+        # dd,
+        # "-c", "copy",
+        # output_file 
+        # ]
         
-        process = await asyncio.create_subprocess_exec(
-            *command,
-            # stdout must a pipe to be accessible as process.stdout
-            stdout=asyncio.subprocess.PIPE,
-            stderr=asyncio.subprocess.PIPE,
-        )
-        # Wait for the subprocess to finish
-        stdout, stderr = await process.communicate()
-        e_response = stderr.decode().strip()
-        t_response = stdout.decode().strip()
+        # process = await asyncio.create_subprocess_exec(
+        #     *command,
+        #     # stdout must a pipe to be accessible as process.stdout
+        #     stdout=asyncio.subprocess.PIPE,
+        #     stderr=asyncio.subprocess.PIPE,
+        # )
+        # # Wait for the subprocess to finish
+        # stdout, stderr = await process.communicate()
+        # e_response = stderr.decode().strip()
+        # t_response = stdout.decode().strip()
     
     return output_folder,d
 
