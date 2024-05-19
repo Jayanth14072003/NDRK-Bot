@@ -167,9 +167,9 @@ class Config(object):
     # ~ BIN
     config.BIN = tuple_()
 
-    config.BIN.ffmpeg = f"{config.PATHS.BINARY_PATH}/ffmpeg/ffmpeg.exe"
-    config.BIN.ffprobe = f"{config.PATHS.BINARY_PATH}/ffmpeg/ffprobe.exe"
-    config.BIN.ffplay = f"{config.PATHS.BINARY_PATH}/ffmpeg/ffplay.exe"
+    config.BIN.ffmpeg = f"{config.PATHS.BINARY_PATH}/ffmpeg.exe"
+    config.BIN.ffprobe = f"{config.PATHS.BINARY_PATH}/ffprobe.exe"
+    config.BIN.ffplay = f"{config.PATHS.BINARY_PATH}/ffplay.exe"
 
 
 # # ~ CDM
