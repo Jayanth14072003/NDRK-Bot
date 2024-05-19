@@ -4,6 +4,7 @@ import os
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 import logging
 from pathlib import Path
+from os.path import dirname, join
 
 logging.basicConfig(
     format='%(name)s - %(levelname)s - %(message)s',
