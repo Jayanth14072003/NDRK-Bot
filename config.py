@@ -13,6 +13,10 @@ logging.basicConfig(
     level=logging.INFO
 )
 
+class tuple_(object):
+    def __init__(self):
+        return
+
 class Config(object):
 
     BOT_TOKEN = os.environ.get("BOT_TOKEN", "7153525008:AAFTPFIfqlIJiwHJOPzENWnwJQC-32LfR9k") #@video_splitter 
@@ -150,18 +154,18 @@ class Config(object):
     PATH = str(Path(os.path.realpath(__name__)).parent)
 
     # ~ CONFIG
-    config = tuple()
+    config = tuple_()
 
     # ~ dirPath
     config.dirPath = PATH
 
     # ~ PATHS
-    config.PATHS = tuple()
+    config.PATHS = tuple_()
 
     config.PATHS.BINARY_PATH = f"{config.dirPath}/tools"
 
     # ~ BIN
-    config.BIN = tuple()
+    config.BIN = tuple_()
 
     config.BIN.ffmpeg = f"{config.PATHS.BINARY_PATH}/ffmpeg/ffmpeg.exe"
     config.BIN.ffprobe = f"{config.PATHS.BINARY_PATH}/ffmpeg/ffprobe.exe"
