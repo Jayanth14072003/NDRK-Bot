@@ -25,6 +25,9 @@ from plugins.database.add import add_user_to_database
 from plugins.settings.setting import OpenSettings
 import ffmpeg
 
+ffmpeg_tools = Config.config.BIN.ffmpeg
+ffprobe_tools = Config.config.BIN.ffprobe
+
 @Client.on_message(filters.private & filters.photo)
 async def photo_handler(bot: Client, event: Message):
     if not event.from_user:
@@ -99,7 +102,7 @@ async def take_screen_shot(video_file, output_directory, ttl):
     out_put_file_name = output_directory + \
         "/" + str(time.time()) + ".jpg"
     file_genertor_command = [
-        "ffmpeg",
+        ffmpeg_tools,
         "-ss",
         str(ttl),
         "-i",
