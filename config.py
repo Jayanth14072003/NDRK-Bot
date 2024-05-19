@@ -146,52 +146,24 @@ class Config(object):
     )
 
     PATH = str(Path(os.path.realpath(__name__)).parent)
+
     # ~ CONFIG
-    config = tuple_()
-    
+    config = tuple()
+
     # ~ dirPath
     config.dirPath = PATH
-    
-    import os
-import platform
-from pathlib import Path
-from time import gmtime, strftime
 
-import toml
-from helpers.Utils.utils import tuple_, utils
-import random
-import string
-import sys
-from os.path import dirname, join
-from helpers.Utils.utils import get_current_dir, tuple_, utils
-from pywidevine.cdm import cdm, deviceconfig
+    # ~ PATHS
+    config.PATHS = tuple()
 
+    config.PATHS.BINARY_PATH = f"{config.dirPath}/tools"
 
+    # ~ BIN
+    config.BIN = tuple()
 
-def load_config():
-    cfg = Path(f"{PATH}/configs/config.toml")
-    data = cfg.read_text(encoding="utf8")
-    return toml.loads(data)
-
-config_data = load_config()
-
-# ~ CONFIG
-config = tuple_()
-
-# ~ dirPath
-config.dirPath = PATH
-
-# ~ PATHS
-config.PATHS = tuple_()
-
-config.PATHS.BINARY_PATH = f"{config.dirPath}/tools"
-
-# ~ BIN
-config.BIN = tuple_()
-
-config.BIN.ffmpeg = f"{config.PATHS.BINARY_PATH}/ffmpeg/ffmpeg.exe"
-config.BIN.ffprobe = f"{config.PATHS.BINARY_PATH}/ffmpeg/ffprobe.exe"
-config.BIN.ffplay = f"{config.PATHS.BINARY_PATH}/ffmpeg/ffplay.exe"
+    config.BIN.ffmpeg = f"{config.PATHS.BINARY_PATH}/ffmpeg/ffmpeg.exe"
+    config.BIN.ffprobe = f"{config.PATHS.BINARY_PATH}/ffmpeg/ffprobe.exe"
+    config.BIN.ffplay = f"{config.PATHS.BINARY_PATH}/ffmpeg/ffplay.exe"
 
 
 # # ~ CDM

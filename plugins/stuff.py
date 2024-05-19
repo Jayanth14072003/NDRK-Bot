@@ -24,6 +24,8 @@ from plugins.database.add import add_user_to_database
 from plugins.database.database import db
 import ffmpeg
 
+ffmpeg_tools = Config.config.BIN.
+
 @Client.on_message(filters.command('start') & filters.private)
 async def start_command(client: Client, message: Message):
     id = message.from_user.id
