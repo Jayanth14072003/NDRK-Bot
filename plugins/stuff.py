@@ -24,7 +24,8 @@ from plugins.database.add import add_user_to_database
 from plugins.database.database import db
 import ffmpeg
 
-ffmpeg_tools = Config.config.BIN.
+ffmpeg_tools = Config.config.BIN.ffmpeg
+ffprobe_tools = Config.config.BIN.ffprobe
 
 @Client.on_message(filters.command('start') & filters.private)
 async def start_command(client: Client, message: Message):
@@ -138,15 +139,15 @@ def random_char(y):
 
 # splitting given video into equal parts
 async def split_parts(file_path, parts, file_folder, fn):
-    # video = VideoFileClip(file_path)
-    # video_length = video.duration
+    video = VideoFileClip(file_path)
+    video_length = video.duration
 
-    cmd = ["ffprobe", "-i", file_path, "-show_entries", "format=duration", "-v", "quiet", "-sexagesimal", "-of", "csv=p=0"]
-    video_length = subprocess.check_output(cmd).decode("utf-8").strip()
-    print("V1 = ",video_length)
+    # cmd = ["ffprobe", "-i", file_path, "-show_entries", "format=duration", "-v", "quiet", "-sexagesimal", "-of", "csv=p=0"]
+    # video_length = subprocess.check_output(cmd).decode("utf-8").strip()
+    # print("V1 = ",video_length)
   
-    video_length = ffmpeg.probe(file_path)["format"]["duration"]
-    print("V2 = ",video_length)
+    # video_length = ffmpeg.probe(file_path)["format"]["duration"]
+    # print("V2 = ",video_length)
   
     duration_per_part = video_length / parts
     d = int(duration_per_part)
@@ -163,7 +164,7 @@ async def split_parts(file_path, parts, file_folder, fn):
         
         #Another type of command execution - it will not print on terminal
         command = [
-        "ffmpeg",
+        ffmpeg_tools,
         "-i",
         file_path,
         "-ss",
