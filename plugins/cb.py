@@ -73,8 +73,6 @@ async def button(bot, update):
         auth_id = auth_user_id(bot, update)
         await update.answer()
         addauth = await db.get_auth_user(auth_id)
-        print("Auth result = ",addauth,"\n\n")
-        print("Auth id = ",auth_id,"\n\n")
         if addauth:
             await update.message.edit_text(
             text= f"<b>The Given [User](tg://user?id={auth_id}) Is Already an Auth User...!!\nClick Confirm To Remove From An Auth Users List.👇</b>",
