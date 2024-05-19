@@ -160,7 +160,7 @@ async def split_parts(file_path, parts, file_folder, fn):
         
         # One type of command execution - it will print on terminal
         cmd = f"{ffmpeg_tools} -i {file_path} -ss {start_time} -t {d} -c copy {output_file}"
-        subprocess.check_output(cmd, shell=True)
+        await subprocess.check_output(cmd, shell=True)
         
         # #Another type of command execution - it will not print on terminal
         # command = [
