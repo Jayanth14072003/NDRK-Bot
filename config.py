@@ -20,7 +20,7 @@ class tuple_(object):
 class Config(object):
 
     #BOT_TOKEN = os.environ.get("BOT_TOKEN", "7153525008:AAFTPFIfqlIJiwHJOPzENWnwJQC-32LfR9k") #@video_splitter 
-    BOT_TOKEN = os.environ.get("BOT_TOKEN", "6922287383:AAHzqmMYEgcCMFf_2A7b3ukibBHQcgrVPEA")
+    BOT_TOKEN = os.environ.get("BOT_TOKEN", "6922287383:AAEMGiMAcifPH9n1dHF3eOT_jaC7PtGTeFE")
     
     API_ID = int(os.environ.get("API_ID", "3393749"))
 
