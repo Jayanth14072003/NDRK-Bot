@@ -32,7 +32,7 @@ async def start_command(client: Client, message: Message):
     id = message.from_user.id
     if not db.is_user_exist(id):
         try:
-          await db.add_user(id)
+          await db.add_user_to_database(client, message)
           await client.send_message(
           Config.LOG_CHANNEL,
              f"<b>#𝐍𝐞𝐰𝐔𝐬𝐞𝐫: \n\n᚛› 𝐈𝐃 - {message.from_user.id} \n᚛› 𝐍𝐚𝐦𝐞 - [{message.from_user.first_name}](tg://user?id={message.from_user.id})</b>"
