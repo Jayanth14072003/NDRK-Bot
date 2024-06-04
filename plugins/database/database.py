@@ -15,9 +15,10 @@ class Database:
         return dict(
             id=id,
             join_date=datetime.date.today().isoformat(),
-            auth_user=False,
+            apply_caption=True,
             upload_as_doc=False,
-            thumbnail=None
+            thumbnail=None,
+            caption=None
         )
 
     async def add_user(self, id):
@@ -67,7 +68,7 @@ class Database:
         return user.get('thumbnail', None)
 
     async def get_user_data(self, id) -> dict:
-        user = self.col.find_one({'id': int(id)})
+        user = await self.col.find_one({'id': int(id)})
         return user or None
 
 
