@@ -68,7 +68,7 @@ class Database:
         return user.get('thumbnail', None)
 
     async def get_user_data(self, id) -> dict:
-        user = await self.col.find_one({'id': int(id)})
+        user = self.col.find_one({'id': int(id)})
         return user or None
 
 
