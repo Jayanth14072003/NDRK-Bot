@@ -69,7 +69,7 @@ class Database:
 
     async def get_user_data(self, id) -> dict:
         user = self.col.find_one({'id': int(id)})
-        return user or None
+        return user
 
 
 db = Database(Config.DATABASE_URL, Config.DATABASE_NAME)
