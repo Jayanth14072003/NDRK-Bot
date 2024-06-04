@@ -19,16 +19,15 @@ class tuple_(object):
 
 class Config(object):
 
-    #BOT_TOKEN = os.environ.get("BOT_TOKEN", "7153525008:AAFTPFIfqlIJiwHJOPzENWnwJQC-32LfR9k") #@video_splitter 
-    BOT_TOKEN = os.environ.get("BOT_TOKEN", "6922287383:AAEMGiMAcifPH9n1dHF3eOT_jaC7PtGTeFE")
+    BOT_TOKEN = os.environ.get("BOT_TOKEN", "7153525008:AAFTPFIfqlIJiwHJOPzENWnwJQC-32LfR9k")
     
     API_ID = int(os.environ.get("API_ID", "3393749"))
 
     API_HASH = os.environ.get("API_HASH", "a15a5954a1db54952eebd08ea6c68b71")
 
-    OWNER_ID = int(os.environ.get("OWNER_ID", "1061576483"))
+    OWNER_ID = int(os.environ.get("OWNER_ID", "7087567372"))
     
-    AUTH_USERS = set(int(x) for x in os.environ.get("AUTH_USERS", "1061576483").split())
+    AUTH_USERS = set(int(x) for x in os.environ.get("AUTH_USERS", "7087567372").split())
 
     AUTH_USERS = list(AUTH_USERS)
     
@@ -38,13 +37,13 @@ class Config(object):
 
     DOWNLOAD_LOCATION = "./DOWNLOADS"
 
-    LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL", "-1002060701925"))
+    LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL", "-1002246939657"))
     
-    DB_CHANNEL = int(os.environ.get("DB_CHANNEL", "-1002097798772"))
+    DB_CHANNEL = int(os.environ.get("DB_CHANNEL", "-1002237988001"))
 
     DATABASE_URL = os.environ.get("DATABASE_URL", "mongodb+srv://Jayanna:Jayanna2023@yash.tm1c2bd.mongodb.net/?retryWrites=true&w=majority")
 
-    DATABASE_NAME = os.environ.get("DATABASE_NAME", "NDRKBot")
+    DATABASE_NAME = os.environ.get("DATABASE_NAME", "NDRK-Splitter-Bot")
     
     LOGGER = logging
     
