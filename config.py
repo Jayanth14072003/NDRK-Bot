@@ -19,7 +19,7 @@ class tuple_(object):
 
 class Config(object):
 
-    BOT_TOKEN = os.environ.get("BOT_TOKEN", "6922287383:AAEMGiMAcifPH9n1dHF3eOT_jaC7PtGTeFE")
+    BOT_TOKEN = os.environ.get("BOT_TOKEN", "6922287383:AAFG3cqfQu5uXq7PjKYRSKTOhIGeGLNeT9Y")
     
     API_ID = int(os.environ.get("API_ID", "3393749"))
 
