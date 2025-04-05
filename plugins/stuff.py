@@ -7,7 +7,7 @@ logger = logging.getLogger(__name__)
 
 from pyrogram.errors import FloodWait, UserIsBlocked, InputUserDeactivated
 # from moviepy.video.io.VideoFileClip import VideoFileClip
-from moviepy.editor import *
+from moviepy import *
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 import math
 import time
