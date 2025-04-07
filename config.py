@@ -19,7 +19,10 @@ class tuple_(object):
 
 class Config(object):
 
-    BOT_TOKEN = os.environ.get("BOT_TOKEN", "6922287383:AAFG3cqfQu5uXq7PjKYRSKTOhIGeGLNeT9Y")
+    BOT_TOKEN = os.environ.get("BOT_TOKEN", "6922287383:AAFG3cqfQu5uXq7PjKYRSKTOhIGeGLNeT9Y")  #Original one
+    # BOT_TOKEN = os.environ.get("BOT_TOKEN", "6100891233:AAEPZ22I2sI3IPVWDcsAC1X3Ydf1XqM6qvA") #testing bot 1 (ghfjg)
+    # BOT_TOKEN = os.environ.get("BOT_TOKEN", "5872747581:AAHVN_3OP9uffBCKdesYZXFigzVuRYWLYOY") #testing bot 2 (url_v3)
+    # BOT_TOKEN = os.environ.get("BOT_TOKEN", "5409934939:AAGXdsEVszrNGUQWhlrlcRO9WxAaCDsL9P8") #testing bot 3 (notify)
     
     API_ID = int(os.environ.get("API_ID", "3393749"))
 
@@ -37,13 +40,13 @@ class Config(object):
 
     DOWNLOAD_LOCATION = "./DOWNLOADS"
 
-    LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL", "1002060701925"))
+    LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL", "-1002246939657"))
     
     DB_CHANNEL = int(os.environ.get("DB_CHANNEL", "-1002097798772"))
 
-    DATABASE_URL = os.environ.get("DATABASE_URL", "mongodb+srv://Jayanna:Jayanna2023@yash.tm1c2bd.mongodb.net/?retryWrites=true&w=majority")
+    DATABASE_URL = os.environ.get("DATABASE_URL", "mongodb+srv://Jaya:Jaya@cluster0.4ot2upm.mongodb.net/?retryWrites=true&w=majority")  #Jaya@2003 becomes Jaya%402003 becouse of escape according to RFC 3986
 
-    DATABASE_NAME = os.environ.get("DATABASE_NAME", "NDRKBot")
+    DATABASE_NAME = os.environ.get("DATABASE_NAME", "Splitter-Bot")
     
     LOGGER = logging
     
@@ -149,23 +152,3 @@ class Config(object):
         InlineKeyboardButton('🔒 Close', callback_data='close')
         ]]
     )
-
-    PATH = str(Path(os.path.realpath(__name__)).parent)
-
-    # ~ CONFIG
-    config = tuple_()
-
-    # ~ dirPath
-    config.dirPath = PATH
-
-    # ~ PATHS
-    config.PATHS = tuple_()
-
-    config.PATHS.BINARY_PATH = f"{config.dirPath}/tools"
-
-    # ~ BIN
-    config.BIN = tuple_()
-
-    config.BIN.ffmpeg = f"{config.PATHS.BINARY_PATH}/ffmpeg.exe"
-    config.BIN.ffprobe = f"{config.PATHS.BINARY_PATH}/ffprobe.exe"
-    config.BIN.ffplay = f"{config.PATHS.BINARY_PATH}/ffplay.exe"
