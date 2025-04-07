@@ -14,6 +14,7 @@ class Database:
         return dict(
             id=id,
             join_date=datetime.date.today().isoformat(),
+            auth_user=False,
             upload_as_doc=False,
             thumbnail=None,
         )
