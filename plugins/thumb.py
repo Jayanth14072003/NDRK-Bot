@@ -21,7 +21,6 @@ from pyrogram.errors import MessageNotModified
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message, CallbackQuery, ForceReply
 from plugins.database.database import db
 from config import Config
-from plugins.database.add import add_user_to_database
 from plugins.settings.setting import OpenSettings
 import ffmpeg
 
