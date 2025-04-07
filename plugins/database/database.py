@@ -4,7 +4,6 @@ import datetime, pymongo
 #import motor.motor_asyncio
 from config import Config
 
-
 class Database:
     def __init__(self, uri, database_name):
         self._client = pymongo.MongoClient(uri)
@@ -15,15 +14,13 @@ class Database:
         return dict(
             id=id,
             join_date=datetime.date.today().isoformat(),
-            apply_caption=True,
             upload_as_doc=False,
             thumbnail=None,
-            caption=None
         )
 
     async def add_user(self, id):
         user = self.new_user(id)
-        await self.col.insert_one(user)
+        self.col.insert_one(user)
 
     async def is_user_exist(self, id):
         user = self.col.find_one({'id': int(id)})
@@ -70,6 +67,5 @@ class Database:
     async def get_user_data(self, id) -> dict:
         user = self.col.find_one({'id': int(id)})
         return user
-
 
 db = Database(Config.DATABASE_URL, Config.DATABASE_NAME)
