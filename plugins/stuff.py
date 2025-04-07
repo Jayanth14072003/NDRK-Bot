@@ -20,23 +20,19 @@ import random, string, sys
 import os
 import shutil
 from plugins.upload import upload
-from plugins.database.add import add_user_to_database
 from plugins.database.database import db
 import ffmpeg
-
-ffmpeg_tools = Config.config.BIN.ffmpeg
-ffprobe_tools = Config.config.BIN.ffprobe
 
 @Client.on_message(filters.command('start') & filters.private)
 async def start_command(client: Client, message: Message):
     id = message.from_user.id
-    if not db.is_user_exist(id):
+    if not await db.is_user_exist(id):
         try:
-          await db.add_user_to_database(client, message)
-          await client.send_message(
-          Config.LOG_CHANNEL,
-             f"<b>#𝐍𝐞𝐰𝐔𝐬𝐞𝐫: \n\n᚛› 𝐈𝐃 - {message.from_user.id} \n᚛› 𝐍𝐚𝐦𝐞 - [{message.from_user.first_name}](tg://user?id={message.from_user.id})</b>"
-          )
+            await db.add_user(id)
+            # await client.send_message(
+            #     Config.LOG_CHANNEL,
+            #         f"<b>#𝐍𝐞𝐰𝐔𝐬𝐞𝐫: \n\n᚛› 𝐈𝐃 - {message.from_user.id} \n᚛› 𝐍𝐚𝐦𝐞 - [{message.from_user.first_name}](tg://user?id={message.from_user.id})</b>"
+            #     )
         except:
           pass
     await message.reply_text(text = Config.START_TEXT.format(message.from_user.mention),
@@ -61,13 +57,12 @@ async def about_command(client: Client, message: Message):
 
 @Client.on_message(filters.command('addauth') & filters.private & filters.user(Config.OWNER_ID))
 async def add_auth(bot, update):
-    global auth_id
-    auth_id = 1
     cmd = update.command
     if len(cmd) == 1:
         await update.reply(text = "Invalid Syntax send the command properly.\nExample: <code>/addauth 1061576483</code>")
     elif len(cmd) == 2:
         try:
+            global auth_id
             auth_id = int(cmd[1].strip())
             #Config.AUTH_USERS.append(auth_id)
             await update.reply_text(text = f"<b>Do You Want To Add The Given [User](tg://user?id={auth_id}) To An Auth User.\nClick Below Button Confirm 👇</b>",
@@ -78,7 +73,7 @@ async def add_auth(bot, update):
 @Client.on_message(filters.command("sp") & filters.private)
 async def parts_handler(bot, update):
     user_id = update.from_user.id
-    if (db.get_auth_user(user_id)) is False and not user_id in Config.AUTH_USERS:
+    if (await db.get_auth_user(user_id)) is False and not user_id in Config.AUTH_USERS:
         return await update.reply_text(
           text = Config.NOT_AUTH.format(update.from_user.mention),
           disable_web_page_preview=True, quote=True
@@ -304,7 +299,7 @@ Deleted Accounts: <code>{deleted}</code>
 Unsuccessful: <code>{unsuccessful}</code></b>"""
         
         return await pls_wait.edit(status)
-
+      
     else:
         msg = await message.reply(Config.REPLY_ERROR)
         await asyncio.sleep(8)
