@@ -31,7 +31,6 @@ import ffmpeg
 async def photo_handler(bot: Client, event: Message):
     if not event.from_user:
         return await event.reply_text("I don't know about you sar :(")
-    await add_user_to_database(bot, event)
     editable = await event.reply_text("**👀 Processing...**")
     await db.set_thumbnail(event.from_user.id, thumbnail=event.photo.file_id)
     await editable.edit("**✅ ᴄᴜsᴛᴏᴍ ᴛʜᴜᴍʙɴᴀɪʟ sᴀᴠᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ!!**")
@@ -41,7 +40,7 @@ async def photo_handler(bot: Client, event: Message):
 async def delete_thumb_handler(bot: Client, event: Message):
     if not event.from_user:
         return await event.reply_text("I don't know about you sar :(")
-    await add_user_to_database(bot, event)
+    # await add_user_to_database(bot, event)
     await db.set_thumbnail(event.from_user.id, thumbnail=None)
     await event.reply_text(
         "**🗑️ ᴄᴜsᴛᴏᴍ ᴛʜᴜᴍʙɴᴀɪʟ ᴅᴇʟᴇᴛᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ!!**",
@@ -54,7 +53,7 @@ async def delete_thumb_handler(bot: Client, event: Message):
 async def viewthumbnail(bot, update):
     if not update.from_user:
         return await update.reply_text("I don't know about you sar :(")
-    await add_user_to_database(bot, update) 
+    # await add_user_to_database(bot, update) 
     thumbnail = await db.get_thumbnail(update.from_user.id)
     if thumbnail is not None:
         await bot.send_photo(
